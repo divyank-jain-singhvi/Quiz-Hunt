@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { database } from "./firebase"; // Make sure this matches your file name
+import { ref, set } from "firebase/database";
+
+const sendDataToRealtimeDB = (data) => {
+  const userRef = ref(database, 'responses/' + data.name); // Using name as key
+  set(userRef, data)
+    .then(() => {
+      console.log("Data successfully written to Realtime Database");
+    })
+    .catch((error) => {
+      console.error("Error writing to Realtime Database:", error);
+    });
+};
+
+
+
 
 function App() {
+  const handleSendData = () => {
+    const sampleData = {
+      name: "Divyank",
+      score: 92,
+      submittedAt: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) 
+    };
+    sendDataToRealtimeDB(sampleData);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={handleSendData}>Send Data to Realtime DB</button>
     </div>
   );
 }
