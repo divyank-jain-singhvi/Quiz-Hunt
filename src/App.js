@@ -1,6 +1,8 @@
 import { database } from "./firebase"; 
 import { ref, set, get, child ,update} from "firebase/database";
 import { useState, useEffect } from "react";
+import independence from './assets/Independence.png';
+import titagarh from './assets/Titagarh-Rail-system-logo-Image.png';
 
 
 
@@ -135,12 +137,15 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
         codeList={ ...codeList, [userCode.trim()]: 0 };
         sendDataToRealtimeDB(codeList,"Codes");
       }
-      
+      const now = new Date();
+      const localTime = now.toLocaleString();
+      setCodeTime(localTime);
       }
+      
     }
-    const now = new Date();
-    const localTime = now.toLocaleString();
-    setCodeTime(localTime);
+    // const now = new Date();
+    // const localTime = now.toLocaleString();
+    // setCodeTime(localTime);
   }
   };
 
@@ -241,54 +246,113 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
     }, [codeTime,answerTime]);
 
   return (
-    <div className="App">
+  <div className="App bg-dark text-light min-vh-100" 
+       style={{ 
+         backgroundImage: "url('https://images.unsplash.com/photo-1555949963-aa79dcee9810?auto=format&fit=crop&w=1470&q=80')", 
+         backgroundSize: 'cover', 
+         backgroundPosition: 'center' 
+       }}>
 
-      <h5>Select Your team</h5>
+    {/* Logo Section */}
+    <div className="container py-3">
+      <img src={independence} alt="Logo1" className="img-fluid me-3" 
+     style={{ maxHeight: '50px', filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))' }} />
+      <img src={titagarh} alt="Logo2" className="img-fluid" 
+     style={{ maxHeight: '50px', filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))' }} />
 
-      <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)}>
-        <option value="">-- Choose your Name --</option>
-        <option value="Divyank">Divyank</option>
-        <option value="Bhavesh Sanghvi">Bhavesh Sanghvi</option>
-        <option value="Jojo Joy">Jojo Joy</option>
-        <option value="Adhokshaj">Adhokshaj</option>
-        <option value="Akhilesh">Akhilesh</option>
-        <option value="Anup Kumar">Anup Kumar</option>
-        <option value="Arun Kumar">Arun Kumar</option>
-        <option value="Bhagyashri">Bhagyashri</option>
-        <option value="Chaitanya">Chaitanya</option>
-        <option value="Chandan">Chandan</option>
-        <option value="Divya">Divya</option>
-        <option value="Ganshyam">Ganshyam</option>
-        <option value="Govardhana R">Govardhana R</option>
-        <option value="Niharika">Niharika</option>
-        <option value="Uday">Uday</option>
-        <option value="Omkar">Omkar</option>
-        <option value="Pooja">Pooja</option>
-        <option value="Rahul Sharma">Rahul Sharma</option>
-        <option value="Rahul Upadhyay">Rahul Upadhyay</option>
-        <option value="Roshan Kumar">Roshan Kumar</option>
-        <option value="Shivanandam">Shivanandam</option>
-        <option value="Sachin Sharma">Sachin Sharma</option>
-        <option value="Sai Kiran">Sai Kiran</option>
-        <option value="Sangeeth">Sangeeth</option>
-        <option value="Soumyadwip">Soumyadwip</option>
-        <option value="Subhiksha">Subhiksha</option>
-        <option value="Avinash">Avinash</option>
-        <option value="Vinay N S">Vinay N S</option>
-        <option value="Virendra">Virendra</option>
-        <option value="Yash">Yash</option>
-      </select>
-
-      <input type="text" placeholder="Enter Code" value={userCode} onChange={(e) => setUserCode(e.target.value)}/>
-      <button onClick={handleSubmitCode}>Submit Code</button>
-      <input type="text" placeholder="Enter Your Answer" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)}/>
-      <button onClick={handleSubmitAnswer}>Submit</button>
-
-      <p>{fetchedQuestion}</p>
-      <p>{codeTime}</p>
-      <p>{answerTime}</p>
     </div>
-  );
+
+    {/* Quiz Card */}
+    <div className="d-flex justify-content-center align-items-center">
+      <div className="card shadow-lg p-4 rounded-4 text-center" style={{ maxWidth: '500px', width: '100%', backgroundColor: 'rgba(0,0,0,0.75)' }}>
+        <h2 className="mb-4 text-warning">🔥 Hunt Code Quiz 🔥</h2>
+
+        {/* Team Selection */}
+        <div className="mb-3 text-start">
+          <label className="form-label text-warning">Select Your Team</label>
+          <select 
+            className="form-select bg-dark text-light border-warning" 
+            value={selectedValue} 
+            onChange={(e) => setSelectedValue(e.target.value)}
+          >
+            <option value="">-- Choose your Name --</option>
+            <option value="Divyank">Divyank</option>
+            <option value="Bhavesh Sanghvi">Bhavesh Sanghvi</option>
+            <option value="Jojo Joy">Jojo Joy</option>
+            <option value="Adhokshaj">Adhokshaj</option>
+            <option value="Akhilesh">Akhilesh</option>
+            <option value="Anup Kumar">Anup Kumar</option>
+            <option value="Arun Kumar">Arun Kumar</option>
+            <option value="Bhagyashri">Bhagyashri</option>
+            <option value="Chaitanya">Chaitanya</option>
+            <option value="Chandan">Chandan</option>
+            <option value="Divya">Divya</option>
+            <option value="Ganshyam">Ganshyam</option>
+            <option value="Govardhana R">Govardhana R</option>
+            <option value="Niharika">Niharika</option>
+            <option value="Uday">Uday</option>
+            <option value="Omkar">Omkar</option>
+            <option value="Pooja">Pooja</option>
+            <option value="Rahul Sharma">Rahul Sharma</option>
+            <option value="Rahul Upadhyay">Rahul Upadhyay</option>
+            <option value="Roshan Kumar">Roshan Kumar</option>
+            <option value="Shivanandam">Shivanandam</option>
+            <option value="Sachin Sharma">Sachin Sharma</option>
+            <option value="Sai Kiran">Sai Kiran</option>
+            <option value="Sangeeth">Sangeeth</option>
+            <option value="Soumyadwip">Soumyadwip</option>
+            <option value="Subhiksha">Subhiksha</option>
+            <option value="Avinash">Avinash</option>
+            <option value="Vinay N S">Vinay N S</option>
+            <option value="Virendra">Virendra</option>
+            <option value="Yash">Yash</option>
+          </select>
+        </div>
+
+        {/* Code Input */}
+        <div className="mb-3 text-start">
+          <label className="form-label text-warning">Code</label>
+          <input 
+            type="text" 
+            value={userCode} 
+            onChange={(e) => setUserCode(e.target.value)}
+            className="form-control bg-dark text-light border-warning"
+          />
+          <button className="btn btn-warning mt-2 w-100" onClick={handleSubmitCode}>
+            Submit Code
+          </button>
+        </div>
+
+        {/* Answer Input */}
+        <div className="mb-3 text-start">
+          <label className="form-label text-warning">Your Answer</label>
+          <input 
+            type="text" 
+            value={userAnswer} 
+            onChange={(e) => setUserAnswer(e.target.value)}
+            className="form-control bg-dark text-light border-warning"
+          />
+          <button className="btn btn-success mt-2 w-100" onClick={handleSubmitAnswer}>
+            Submit
+          </button>
+        </div>
+
+        {/* Question & Time */}
+        <div className="mt-4 text-light text-start">
+          <h5 className="text-warning">Question:</h5>
+          <p className="border p-2 rounded" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>{fetchedQuestion}</p>
+
+          <h6 className="text-warning mt-3">Code Time:</h6>
+          <p>{codeTime}</p>
+
+          <h6 className="text-warning mt-2">Answer Time:</h6>
+          <p>{answerTime}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 }
 
 export default App;
