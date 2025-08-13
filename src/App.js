@@ -151,12 +151,36 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
 
       <select value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)}>
         <option value="">-- Choose your Team --</option>
-        <option value="Alpha">Alpha</option>
-        <option value="Beta">Beta</option>
-        <option value="Gama">Gama</option>
-        <option value="Delta">Delta</option>
-        <option value="Epsilon">Epsilon</option>
-        
+        <option value="Alpha">Divyank</option>
+        <option value="Beta">Bhavesh Sanghvi</option>
+        <option value="Gama">Jojo Joy</option>
+        <option value="Delta">Adhokshaj</option>
+        <option value="Epsilon">Akhilesh</option>
+        <option value="Alpha">Anup Kumar</option>
+        <option value="Beta">Arun Kumar</option>
+        <option value="Gama">Bhagyashri</option>
+        <option value="Delta">Chaitanya</option>
+        <option value="Epsilon">Chandan</option>
+        <option value="Alpha">Divya</option>
+        <option value="Beta">Ganshyam</option>
+        <option value="Gama">Govardhana R</option>
+        <option value="Delta">Niharika</option>
+        <option value="Epsilon">Uday</option>
+        <option value="Alpha">Omkar</option>
+        <option value="Beta">Pooja</option>
+        <option value="Gama">Rahul Sharma</option>
+        <option value="Delta">Rahul Upadhyay</option>
+        <option value="Epsilon">Roshan Kumar</option>
+        <option value="Gama">Shivanandam</option>
+        <option value="Delta">Sachin Sharma</option>
+        <option value="Epsilon">Sai Kiran</option>
+        <option value="Gama">Sangeeth</option>
+        <option value="Delta">Soumyadwip</option>
+        <option value="Epsilon">Subhiksha</option>
+        <option value="Gama">Avinash</option>
+        <option value="Delta">Vinay N S</option>
+        <option value="Epsilon">Virendra</option>
+        <option value="Epsilon">Yash</option>
       </select>
 
       <input type="text" placeholder="Enter Code" value={userCode} onChange={(e) => setUserCode(e.target.value)}/>
