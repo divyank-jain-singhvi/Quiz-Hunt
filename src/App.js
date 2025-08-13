@@ -252,15 +252,38 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
          backgroundSize: 'cover', 
          backgroundPosition: 'center' 
        }}>
-
-    {/* Logo Section */}
+    
     <div className="container py-3">
-      <img src={independence} alt="Logo1" className="img-fluid me-3" 
-     style={{ maxHeight: '50px', filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))' }} />
-      <img src={titagarh} alt="Logo2" className="img-fluid" 
-     style={{ maxHeight: '50px', filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))' }} />
-
-    </div>
+  <div className="d-flex justify-content-center align-items-center flex-wrap gap-3">
+    <img
+      src={independence}
+      alt="Logo1"
+      className="img-fluid"
+      style={{
+        maxHeight: '50px',
+        filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))'
+      }}
+    />
+    <img
+      src={titagarh}
+      alt="Logo2"
+      className="img-fluid"
+      style={{
+        maxHeight: '50px',
+        filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))'
+      }}
+    />
+    <img
+      src={independence}
+      alt="Logo3"
+      className="img-fluid"
+      style={{
+        maxHeight: '50px',
+        filter: 'drop-shadow(2px 2px 2px rgba(255,255,255,0.7))'
+      }}
+    />
+  </div>
+</div>
 
     {/* Quiz Card */}
     <div className="d-flex justify-content-center align-items-center">
