@@ -184,6 +184,7 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
       let endTotalSeconds = parseInt(answerminutes) * 60 + parseInt(answersecond);
         
       let diffSeconds = endTotalSeconds - startTotalSeconds;
+      if (diffSeconds < 0) diffSeconds += 24 * 3600;
 
         // if ((answerminutes-codeminutes)===0){
           if (diffSeconds<31){
@@ -191,6 +192,8 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
               if (userAnswer.toLowerCase().trim()===fetchedAnswer.toLowerCase().trim()){
               const Data={
               answer:userAnswer,
+              startTime: codeTime,
+              endTime: localTime
               }
               sendDataToRealtimeDB(Data,`Teams/${selectedValue}/${fetchedQuestion}`);
               setUserCode("");
@@ -202,19 +205,27 @@ const fetchDataFromRealtimeDB = (firebaseData) => {
               
               }
               else{
+                const Data={
+                answer:userAnswer,
+                 startTime: codeTime,
+                endTime: localTime
+                }
+                sendDataToRealtimeDB(Data,`Teams/Wrong/${selectedValue}/${fetchedQuestion}`);
                 setUserCode("");
                 setUserAnswer("");
                 setFetchedQuestion("")
                 setAnswerTime("")
                 setCodeTime("")
                 alert("Wrong Answer");
-                const Data={
-                answer:userAnswer,
-                }
-                sendDataToRealtimeDB(Data,`Teams/Wrong/${selectedValue}/${fetchedQuestion}`);
               }
             }
           }else{
+            const Data={
+                answer:userAnswer,
+                 startTime: codeTime,
+                endTime: localTime
+                }
+            sendDataToRealtimeDB(Data,`Teams/Wrong/${selectedValue}/${fetchedQuestion}`);
             setUserCode("");
             setUserAnswer("");
             setFetchedQuestion("")
